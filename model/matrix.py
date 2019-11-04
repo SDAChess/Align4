@@ -18,3 +18,12 @@ class Matrix:
     def __setitem__(self, item, value):
         x, y = item
         self._matrix[y][x] = value
+
+    def __len__(self):
+        return self._width, self._height
+
+    def get_height(self):
+        return self._height
+
+    def get_width(self):
+        return self._width
