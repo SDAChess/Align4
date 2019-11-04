@@ -12,16 +12,12 @@ class Matrix:
                 self._matrix[-1].append(default_value)
 
     def __getitem__(self, item):
-        """
-        >>> matrix = Matrix(3)
-        >>> print(matrix[(2, 2)])
-        ... None
-        >>> print(matrix[2, 2])
-        :param item: Tuple representing the coordinates of the item
-        """
-
         x, y = item
         return self._matrix[y][x]
 
-    def __setitem__(self, key, value):
-        pass
+    def __setitem__(self, item, value):
+        x, y = item
+        self._matrix[y][x] = value
+
+    def __len__(self):
+        return self._width, self._height
