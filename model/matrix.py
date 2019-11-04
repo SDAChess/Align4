@@ -4,6 +4,6 @@ class Matrix:
         self.matrix = create_matrix(size)
 
 
-    def create_matrix(self, size):
-        for i in
+    def create_matrix(self, size, default_value):
+        for i in size
 
