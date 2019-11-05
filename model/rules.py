@@ -15,7 +15,10 @@ def evaluate_board(board: Matrix):
         while x < board.width:
             aligned_pieces = _count_horizontals_right(board, x, y)
             x += aligned_pieces + 1
-            alignments[aligned_pieces] += 1
+            try:
+                alignments[aligned_pieces] += 1
+            except KeyError:
+                alignments[4] += 1
         y += 1
 
     # Count the vertical alignments
@@ -24,7 +27,10 @@ def evaluate_board(board: Matrix):
         while y < board.height:
             aligned_pieces = _count_verticals_top(board, x, y)
             y += aligned_pieces + 1
-            alignments[aligned_pieces] += 1
+            try:
+                alignments[aligned_pieces] += 1
+            except KeyError:
+                alignments[4] += 1
         x += 1
 
     # Count the diagonal alignments in the two directions
