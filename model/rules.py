@@ -2,26 +2,29 @@ from model.matrix import Matrix
 
 
 def evaluate_board(board: Matrix):
-    alignments = {}
+    alignments = {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0
+    }
 
     # Count the horizontal alignments
-    horizontals = 0
     x = y = 0
     while y < board.height:
         while x < board.width:
             aligned_pieces = _count_horizontals_right(board, x, y)
             x += aligned_pieces + 1
-            horizontals += aligned_pieces
+            alignments[aligned_pieces] += 1
         y += 1
 
     # Count the vertical alignments
-    verticals = 0
     x = y = 0
     while x < board.width:
         while y < board.height:
             aligned_pieces = _count_verticals_top(board, x, y)
             y += aligned_pieces + 1
-            verticals += aligned_pieces
+            alignments[aligned_pieces] += 1
         x += 1
 
     # Count the diagonal alignments in the two directions
