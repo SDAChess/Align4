@@ -22,8 +22,10 @@ class Matrix:
     def __len__(self):
         return self._width, self._height
 
-    def get_height(self):
+    @property
+    def height(self):
         return self._height
 
-    def get_width(self):
+    @property
+    def width(self):
         return self._width
