@@ -22,6 +22,16 @@ class Matrix:
     def __len__(self):
         return self._width, self._height
 
+    def __str__(self):
+        string = "|"
+        for y in range(self.height - 1, -1, -1):
+            string += ' '.join(map(lambda player: str(player), self._matrix[y])) + '|\n|'
+        string = string[:-1]
+        return string
+
+    def __repr__(self):
+        return str(self)
+
     @property
     def height(self):
         return self._height
